@@ -1,5 +1,5 @@
 $(function() {
-    var canvas = document.querySelector('c'),
+    var canvas = document.querySelector('#c'),
         ctx = canvas.getContext('2d');
 
     ctx.fillStyle = "rgb(200,0,0)";
