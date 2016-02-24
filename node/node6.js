@@ -5,7 +5,7 @@ var app = express();
 
 app.use(function(req, res, next) {
     console.log('Request');
-    next();
+    hello.hello();
 });
 
 app.get('/', function(req, res){

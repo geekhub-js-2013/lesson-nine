@@ -7,11 +7,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/', function(req, res){
+app.post('/', function(req, res){
     res.send('World');
 });
 
-app.get('/2', function(req, res){
+app.delete('/2', function(req, res){
     res.send('World 2');
 });
 

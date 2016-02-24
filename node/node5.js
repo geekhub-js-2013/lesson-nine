@@ -2,10 +2,7 @@ var express = require('express');
 
 var app = express();
 
-app.use(function(req, res, next) {
-    res.write('Hello');
-    next();
-});
+app.use('/static/home/', express.static(__dirname));
 
 app.get('/', function(req, res){
     res.send('World');

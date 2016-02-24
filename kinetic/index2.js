@@ -26,13 +26,19 @@ imageObj.onload = function() {
 
     var tween = new Kinetic.Tween({
         node: boy,
-        duration: 5,
+        duration: 1,
         rotation: Math.PI * 2,
         opacity: 0
     });
 
-    // start tween after 2 seconds
     tween.play();
+
+    setInterval(function() {
+        boy.setOpacity(1);
+        layer.draw();
+        tween.reset();
+        tween.play();
+    }, 2000);
 };
 imageObj.src = 'res/Character Boy.png';
 
@@ -51,9 +57,18 @@ imageObj2.onload = function() {
             y: imageObj.height / 2
         }
     });
+    var girl2 = new Kinetic.Image({
+        x: 100,
+        y: 200,
+        image: imageObj2,
+        offset: {
+            x: imageObj.width /2,
+            y: imageObj.height / 2
+        }
+    });
 
     // add the shape to the layer
-    layer2.add(girl);
+    layer2.add(girl);layer2.add(girl2);
 
     layer2.draw();
 
@@ -63,7 +78,8 @@ imageObj2.onload = function() {
     var centerX = stage.getWidth() / 2;
 
     var anim = new Kinetic.Animation(function(frame) {
-        girl.setX(amplitude * Math.sin(frame.time * 2 * Math.PI / period) + centerX);
+        girl.setX(frame.time / 100);
+        girl2.setY(frame.time / 100);
     }, layer2);
 
     anim.start();
